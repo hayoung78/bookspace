@@ -1,5 +1,3 @@
-import { LogoBox } from "./logo-box";
-
 const Header = () => {
   return (
     <>
