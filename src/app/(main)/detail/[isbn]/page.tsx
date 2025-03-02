@@ -1,6 +1,5 @@
 import { getBookDetail } from "@/api/book-search/apis";
 import { BookDetail } from "@/components/detail/book-detail";
-import { notFound } from "next/navigation";
 
 export default async function BookDetailPage({
   params,
