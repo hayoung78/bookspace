@@ -1,4 +1,3 @@
-// 검색 결과의 책 정보 타입
 type Book = {
   authors: string[]; // 저자 목록
   contents: string; // 책 내용 요약
@@ -21,15 +20,14 @@ type Meta = {
   total_count: number; // 전체 문서 수
 };
 
-// 전체 검색 응답 타입
 type BookSearchResponse = {
-  documents: Book[]; // 검색된 책 목록
-  meta: Meta; // 검색 메타데이터
+  documents: Book[];
+  meta: Meta;
 };
 
 // 전체 데이터 타입
 type BookSearchResponse = {
-  documents: Book[]; // 검색된 책 목록
+  documents: Book[];
   meta: {
     is_end: boolean;
     pageable_count: number;
@@ -39,5 +37,27 @@ type BookSearchResponse = {
 
 // props 타입 정의
 type BookListProps = {
-  data: BookSearchResponse;
+  data: {
+    documents: Array<{
+      isbn: string;
+      title: string;
+      publisher: string;
+      thumbnail: string;
+      price: number;
+      sale_price: number;
+    }>;
+  };
+};
+type PaginationProps = {
+  currentPage: number;
+  totalPages: number;
+  query: string;
+  sort?: string;
+  target?: string;
+};
+type PaginationButtonProps = {
+  onClick: () => void;
+  disabled?: boolean;
+  isActive?: boolean;
+  children: React.ReactNode;
 };
