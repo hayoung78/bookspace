@@ -5,7 +5,7 @@ const Page = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-[var(--yellow0)]">
       <div className="flex flex-col items-center gap-7">
-        <LogoBox />
+        <LogoBox fontSize="text-4xl" />
         <SearchInput />
       </div>
     </div>
