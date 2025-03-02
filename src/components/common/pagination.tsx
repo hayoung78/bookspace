@@ -19,7 +19,6 @@ const Pagination = ({
     params.set("page", page.toString());
     params.set("sort", sort);
     if (target) params.set("target", target);
-
     router.push(`/search?${params.toString()}`);
   };
 
@@ -31,16 +30,12 @@ const Pagination = ({
     if (currentPage > totalPages - 2) {
       startPage = Math.max(1, totalPages - 4);
     }
-
     const endPage = Math.min(startPage + maxPages - 1, totalPages);
-
     for (let i = startPage; i <= endPage; i++) {
       pageNumbers.push(i);
     }
-
     return pageNumbers;
   };
-
   if (totalPages <= 1) return null;
 
   return (
