@@ -9,16 +9,10 @@ export default async function BookDetailPage({
 }) {
   const { isbn } = await params;
   let book: Book | null = null;
+  book = await getBookDetail(isbn);
 
-  try {
-    book = await getBookDetail(isbn);
-
-    if (!book) {
-      notFound();
-    }
-  } catch (error) {
-    console.error("Error fetching book details:", error);
-    notFound();
+  if (!book) {
+    return <div className="text-center mt-10">검색 결과가 없습니다.</div>;
   }
 
   return <BookDetail book={book} />;
